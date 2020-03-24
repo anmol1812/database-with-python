@@ -3,16 +3,13 @@ import psycopg2
 from psycopg2 import Error
 
 try:
-    connection = psycopg2.connect(user = "root",
-                                  password = "kzmtmq1WzP8z3PdgcELzVQVX",
+    connection = psycopg2.connect(user = "anmol",
                                   host = "localhost",
-                                  database = "ml")
+                                  database = "database")
     cursor = connection.cursor()
     create_table_query = """CREATE TABLE time_record (
             id    SERIAL PRIMARY KEY,
-            game_code    VARCHAR NOT NULL,
             data_type    VARCHAR NOT NULL,
-            last_sync_time    TIMESTAMP WITHOUT TIME ZONE NOT NULL,
             present_sync_time    TIMESTAMP WITHOUT TIME ZONE NOT NULL);"""
     cursor.execute(create_table_query)
     connection.commit()
