@@ -2,24 +2,22 @@
 import pandas as pd
 from datetime import datetime
 import psycopg2
-past_time = '2020-01-16 06:13:07.872064'
+
 no=0
 #while True:
     
 try:
-    connection = psycopg2.connect(user="root",
-                                  password="kzmtmq1WzP8z3PdgcELzVQVX",
+    connection = psycopg2.connect(user="anmol",
                                   host="localhost",
-                                  #port="5432",
-                                  database="ml")
+                                  database="database")
     cursor = connection.cursor()
 
-    postgres_insert_query = """ INSERT INTO time_record (id, game_code, data_type, last_time, present_time) VALUES (%s,%s,%s,%s,%s)"""
+    postgres_insert_query = """ INSERT INTO time_record (id, data_type, present_time) VALUES (%s,%s,%s)"""
     present_time = str(datetime.now())
     #print(type(present_time), present_time)
     #print(type(now), now)
     no+=1
-    record_to_insert = ('ByGqEfCXa', 'inserted data type', past_time, present_time)
+    record_to_insert = ('inserted data type', present_time)
     cursor.execute(postgres_insert_query, record_to_insert)
     #past_time = present_time
     print(past_time, present_time)
