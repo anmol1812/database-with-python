@@ -7,11 +7,9 @@ no=0
 #while True:
     
 try:
-    connection = psycopg2.connect(user="root",
-                                  password="kzmtmq1WzP8z3PdgcELzVQVX",
+    connection = psycopg2.connect(user="anmol",
                                   host="localhost",
-                                  #port="5432",
-                                  database="ml")
+                                  database="database")
     cursor = connection.cursor()
 
     query = '''ALTER TABLE Time_record
